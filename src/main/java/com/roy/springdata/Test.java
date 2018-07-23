@@ -7,8 +7,23 @@ import javax.persistence.*;
 public class Test {
 
     @Id
+    @GeneratedValue
     private Integer id;
     private String name;
+    private Integer test2Id;
+    private String test2TestName;
+
+    @JoinColumn(name = "Test2_ID")
+    @ManyToOne
+    private Test2 test2;
+
+    public Test2 getTest2() {
+        return test2;
+    }
+
+    public void setTest2(Test2 test2) {
+        this.test2 = test2;
+    }
 
     public Integer getId() {
         return id;
@@ -24,6 +39,22 @@ public class Test {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getTest2Id() {
+        return test2Id;
+    }
+
+    public void setTest2Id(Integer test2Id) {
+        this.test2Id = test2Id;
+    }
+
+    public String getTest2TestName() {
+        return test2TestName;
+    }
+
+    public void setTest2TestName(String test2TestName) {
+        this.test2TestName = test2TestName;
     }
 
     @Override
